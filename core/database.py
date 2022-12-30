@@ -1,3 +1,4 @@
+from typing import Generator
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import (
     create_async_engine,
@@ -19,3 +20,11 @@ Session: AsyncSession = sessionmaker(
 )
 
 DBBaseModel = declarative_base()
+
+async def get_session() -> Generator:
+    session: AsyncSession = Session()
+
+    try:
+        yield session
+    finally:
+        await session.close()

@@ -6,8 +6,8 @@ CRYPT = CryptContext(
     deprecated='auto'
 )
 
-def crypt_verify(senha: str, hash_senha: str) -> bool:
-    return CRYPT.verify(senha, hash_senha)
+def crypt_verify(password: str, hash_password: str) -> bool:
+    return CRYPT.verify(password, hash_password)
 
-def crypt_hash(senha: str) -> str:
-    return CRYPT.hash(senha)
+def crypt_hash(password: str) -> str:
+    return CRYPT.hash(password)

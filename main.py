@@ -1,8 +1,9 @@
 from fastapi import FastAPI
-from account.routers import routers
+from core.routers import api_routers
 
 app = FastAPI()
-app.include_router(routers, prefix='/account', tags=['accounts', 'contas'])
+
+app.include_router(api_routers, prefix="/api")
 
 if __name__ == "__main__":
     import uvicorn
